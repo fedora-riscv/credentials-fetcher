@@ -18,6 +18,9 @@ BuildRequires:  cmake3 make chrpath openldap-devel grpc-devel gcc-c++ mono-core 
 
 Requires: bind-utils openldap mono-core openldap-clients grpc-cli
 
+# No one likes you i686
+ExcludeArch:    i686
+
 # https://docs.fedoraproject.org/en-US/packaging-guidelines/CMake/
 
 %description
