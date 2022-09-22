@@ -3,7 +3,7 @@
 %global patch_version 94
 
 # For handling bump release by rpmdev-bumpspec and mass rebuild
-%global baserelease 1
+%global baserelease 2
 
 Name:           credentials-fetcher
 Version:        %{major_version}.%{minor_version}.%{patch_version}
@@ -59,6 +59,9 @@ ctest3
 %attr(0700, -, -) %{_sbindir}/credentials_fetcher_utf16_private.exe
 
 %changelog
+* Mon Sep 19 2022 Tom Callaway <spotaws@amazon.com> - 0.0.94-2
+- rebuild for rawhide
+
 * Mon Aug 29 2022 Tom Callaway <spotaws@amazon.com> - 0.0.94-1
 - systemd clean up
 * Mon Aug 22 2022 Sai Kiran Akula <saakla@amazon.com> - 0.0.93
