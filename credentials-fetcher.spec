@@ -17,6 +17,7 @@ Source0:        https://github.com/aws/credentials-fetcher/archive/refs/tags/%{v
 BuildRequires:  cmake3 make chrpath openldap-clients grpc-devel gcc-c++ glib2-devel boost-devel openssl-devel zlib-devel protobuf-devel re2-devel krb5-devel systemd-devel systemd-rpm-macros
 
 Requires: bind-utils openldap openldap-clients
+#Requres: grpc-cli
 
 # No one likes you i686
 ExcludeArch:    i686 armv7hl
