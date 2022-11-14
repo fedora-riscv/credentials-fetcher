@@ -1,9 +1,9 @@
-%global major_version 0
-%global minor_version 0
-%global patch_version 94
+%global major_version 1
+%global minor_version 1
+%global patch_version 0
 
 # For handling bump release by rpmdev-bumpspec and mass rebuild
-%global baserelease 2
+%global baserelease 1
 
 Name:           credentials-fetcher
 Version:        %{major_version}.%{minor_version}.%{patch_version}
@@ -14,12 +14,14 @@ License:        Apache-2.0
 URL:            https://github.com/aws/credentials-fetcher
 Source0:        https://github.com/aws/credentials-fetcher/archive/refs/tags/%{version}.tar.gz
 
-BuildRequires:  cmake3 make chrpath openldap-devel grpc-devel gcc-c++ mono-core glib2-devel boost-devel openssl-devel zlib-devel protobuf-devel re2-devel krb5-devel systemd-devel systemd-rpm-macros
+BuildRequires:  cmake3 make chrpath openldap-clients grpc-devel gcc-c++ glib2-devel boost-devel 
+BuildRequires:  openssl-devel zlib-devel protobuf-devel re2-devel krb5-devel systemd-devel
+BuildRequires:  systemd-rpm-macros dotnet grpc-plugins
 
-Requires: bind-utils openldap mono-core openldap-clients grpc-cli
+Requires: bind-utils openldap openldap-clients awscli
 
 # No one likes you i686
-ExcludeArch:    i686 armv7hl
+ExcludeArch:    i686 armv7hl ppc64le
 
 # https://docs.fedoraproject.org/en-US/packaging-guidelines/CMake/
 
@@ -57,11 +59,19 @@ ctest3
 # https://docs.fedoraproject.org/en-US/packaging-guidelines/LicensingGuidelines/
 %doc CONTRIBUTING.md NOTICE README.md
 %attr(0700, -, -) %{_sbindir}/credentials_fetcher_utf16_private.exe
+%attr(0700, -, -) %{_sbindir}/credentials_fetcher_utf16_private.runtimeconfig.json
 
 %changelog
+* Thu Oct 27 2022 Sai Kiran Akula <saakla@amazon.com> - 1.1.0
+- Create 1.1 release
+* Mon Oct 24 2022 Samiullah Mohammed <samiull@amazon.com> - 1.0.0
+- Add domainless gmsa
+* Wed Oct 12 2022 Sai Kiran Akula <saakla@amazon.com> - 1.0.0
+- Create 1.0 release
 * Mon Sep 19 2022 Tom Callaway <spotaws@amazon.com> - 0.0.94-2
 - rebuild for rawhide
-
+* Sat Sep 10 2022 Samiullah Mohammed <samiull@amazon.com> - 0.0.94-1
+- Replace mono with dotnet
 * Mon Aug 29 2022 Tom Callaway <spotaws@amazon.com> - 0.0.94-1
 - systemd clean up
 * Mon Aug 22 2022 Sai Kiran Akula <saakla@amazon.com> - 0.0.93
