@@ -35,7 +35,7 @@ The same method can be used to refresh other types of security tokens.
 This spec file is specific to Fedora, use this file to rpmbuild on Fedora.
 
 %prep
-%setup -q
+%setup -q -n credentials-fetcher-v.%{version}
 # abseil-cpp LTS 20230125 requires at least C++14; string_view requires C++17:
 sed -r -i 's/(std=c\+\+)11/\117/' CMakeLists.txt
 
@@ -63,7 +63,7 @@ ctest3
 %attr(0700, -, -) %{_sbindir}/credentials_fetcher_utf16_private.runtimeconfig.json
 
 %changelog
-* Thu May 15 2023 Sai Kiran Akula <saakla@amazon.com> - 1.2.0
+* Mon May 15 2023 Sai Kiran Akula <saakla@amazon.com> - 1.2.0
 - Create 1.2.0 release
 
 * Thu Mar 23 2023 Tom Callaway <spot@fedoraproject.org> - 1.1.0-7
