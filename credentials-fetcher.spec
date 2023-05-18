@@ -21,7 +21,7 @@ BuildRequires:  systemd-rpm-macros dotnet-sdk-6.0 grpc-plugins
 Requires: bind-utils openldap openldap-clients awscli dotnet-runtime-6.0
 
 # No one likes you i686
-ExcludeArch:    i686 armv7hl
+ExclusiveArch: x86_64 aarch64 s390x
 
 # https://docs.fedoraproject.org/en-US/packaging-guidelines/CMake/
 
