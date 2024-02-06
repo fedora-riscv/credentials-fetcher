@@ -4,6 +4,7 @@
 
 # For handling bump release by rpmdev-bumpspec and mass rebuild
 %global baserelease 0
+%define _unpackaged_files_terminate_build 0
 
 Name:           credentials-fetcher
 Version:        %{major_version}.%{minor_version}.%{patch_version}
@@ -67,7 +68,7 @@ ctest3
 %attr(0700, -, -) %{_sbindir}/credentials_fetcher_utf16_private.runtimeconfig.json
 
 %changelog
-* Mon Jan 29 2024 Sai Kiran Akula <saakla@amazon.com> - 1.3.6
+* Mon Feb 05 2024 Sai Kiran Akula <saakla@amazon.com> - 1.3.6
 - Create 1.3.6 release
 
 * Sun Feb 04 2024 Benjamin A. Beasley <code@musicinmybrain.net> - 1.2.0-7
