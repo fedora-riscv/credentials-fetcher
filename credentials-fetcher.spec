@@ -8,7 +8,7 @@
 
 Name:           credentials-fetcher
 Version:        %{major_version}.%{minor_version}.%{patch_version}
-Release:        %{baserelease}%{?dist}
+Release:        %{baserelease}.rv64%{?dist}
 Summary:        credentials-fetcher is a daemon that refreshes tickets or tokens periodically
 
 License:        Apache-2.0
@@ -26,7 +26,7 @@ BuildRequires:  aws-sdk-cpp-devel aws-sdk-cpp aws-sdk-cpp-static
 Requires: bind-utils openldap openldap-clients awscli dotnet-runtime-6.0 jsoncpp
 
 # No one likes you i686
-ExclusiveArch: x86_64 aarch64 s390x
+ExclusiveArch: x86_64 aarch64 s390x riscv64
 
 # https://docs.fedoraproject.org/en-US/packaging-guidelines/CMake/
 
